@@ -1,7 +1,4 @@
-### **🛍️ Merchant App (README.md)**
-
-```markdown
-# Merchant App 🛍️
+# Merchant App 📱
 
 An Android app for merchants to generate payment requests and track transactions.  
 Built with **Kotlin**, **Jetpack Compose**, and **Firebase**.
