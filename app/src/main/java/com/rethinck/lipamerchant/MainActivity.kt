@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import cafe.adriel.voyager.navigator.Navigator
 import com.rethinck.lipamerchant.ui.theme.LipaMerchantTheme
 
 class MainActivity : ComponentActivity() {
@@ -18,9 +19,10 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            LipaMerchantTheme {
-
-            }
+            Navigator(
+                // if (user != null) TabNavigatorScreen() else LoginScreen()
+                TabNavigator()
+            )
         }
     }
 }
