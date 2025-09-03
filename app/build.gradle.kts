@@ -2,11 +2,14 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.9.10"
+    id("com.google.dagger.hilt.android")
+    id("com.google.devtools.ksp") // ✅ Add KSP here
 }
 
 android {
     namespace = "com.rethinck.lipamerchant"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.rethinck.lipamerchant"
@@ -49,6 +52,24 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+
+    implementation ("cafe.adriel.voyager:voyager-navigator:1.0.0-rc04")
+    implementation ("cafe.adriel.voyager:voyager-tab-navigator:1.0.0-rc04")
+
+    implementation("network.chaintech:qr-kit:2.0.0")
+
+    // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.2")
+
+    // ZXing for QR
+    implementation("com.google.zxing:core:3.5.3")
+    implementation("com.journeyapps:zxing-android-embedded:4.3.0")
+
+    // Dagger Hilt: for dependency injection
+    implementation("com.google.dagger:hilt-android:2.51.1")
+    ksp("com.google.dagger:hilt-android-compiler:2.51.1") // Use KSP instead
+    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
